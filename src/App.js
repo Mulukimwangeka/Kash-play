@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import cartoon from "./Images/cartoon.jpg"
+import cartoon from "./Images/kash.png" 
 
 function App() {
 
