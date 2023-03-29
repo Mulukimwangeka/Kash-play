@@ -1,0 +1,45 @@
+.navbar {
+  background-color: transparent; /* make the background of the navbar transparent */
+  color: black; /* set the text color of the navbar to white */
+  position: absolute; /* position the navbar absolutely */
+  top: 0; /* align the navbar to the top of the page */
+  left: 0; /* align the navbar to the left of the page */
+  right: 0; /* align the navbar to the right of the page */
+  z-index: 999; /* set the z-index of the navbar to a high value so that it appears on top of other elements */
+}
+
+.home-image {
+  background-color: #F2F2F2; /* set the background color of the home container */
+  width: 100%;
+  height: 10cm;
+  position: relative; /* position the home container relatively */
+}
+
+
+.buttons-container {
+  display: flex;
+  justify-content: center; /* centers the buttons horizontally */
+  gap: 10px; /* adds spacing between the buttons */
+}
+
+.button {
+  border: none;
+  border-radius: 20px; /* makes the button round oval */
+  padding: 10px 20px;
+  background-color: rgb(246, 232, 232);
+  color: black;
+  transition: background-color 0.3s ease-in-out;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: orange;
+  color: white;
+}
+
+.button:active {
+  background-color: orange;
+  color: white;
+}
