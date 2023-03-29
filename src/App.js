@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import cartoon from "./Images/kash.png"
+// define routes
 
 function App() {
 

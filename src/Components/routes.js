@@ -16,7 +16,7 @@ function Main() {
         
         <Router>
 
-            <Route exact path="/Home" component={Home} />
+            <Route  path="/Home" component={Home} />
             <Route exact path="/Subscribed" component={Subscribed} />
             <Route exact path="/Popular" component={Popular} />
             <Route exact path="/Adventures" component={Adventures} />
