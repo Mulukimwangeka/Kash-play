@@ -1,13 +1,12 @@
 import React from "react";
 
-//home component
-
-function Home() {
+function Subscribed
+() {
     return (
         <div className="App">
-        <h1>Home</h1>
+        <h1>Subscribed</h1>
         </div>
     );
     }
 
-export default Home;
+export default Subscribed

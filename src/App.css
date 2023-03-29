@@ -20,6 +20,9 @@
   display: flex;
   justify-content: center; /* centers the buttons horizontally */
   gap: 10px; /* adds spacing between the buttons */
+
+  /* overflow-x: scroll;
+  scroll-behavior: smooth; */
 }
 
 .button {
