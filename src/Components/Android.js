@@ -1,6 +1,6 @@
 //android components
 
-import React, { Component } from 'react';
+import React from 'react';
 function Android
 () {
     return (

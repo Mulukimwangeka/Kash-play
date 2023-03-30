@@ -2,7 +2,9 @@ import React from 'react'
 
 function Action() {
   return (
-    <div>Action</div>
+    <div>
+    <h1>Action</h1>
+    </div>
   )
 }
 

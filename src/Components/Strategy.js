@@ -2,7 +2,9 @@ import React from 'react'
 
 function Strategy() {
   return (
-    <div>Strategy</div>
+    <div>
+    <h1>Strategy</h1>
+    </div>
   )
 }
 

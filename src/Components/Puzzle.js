@@ -2,7 +2,9 @@ import React from 'react'
 
 function Puzzle() {
   return (
-    <div>Puzzle</div>
+    <div>
+    <h1>Puzzle</h1>
+    </div>
   )
 }
 
