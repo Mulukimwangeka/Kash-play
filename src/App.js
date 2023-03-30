@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './App.css';
+import Nav from './Components/Nav';
+import Main from './Components/Routes';
 import cartoon from "./Images/kash.png"
 // define routes
 
@@ -23,27 +24,9 @@ function App() {
           <img src={cartoon} alt="cartoon" className='home-image' />
         </div>
       </div>
-
-      {/* buttons container */}
-
-      <div className="buttons-container">
-
-
-        <Link to="/Home" ><button className="button">Home</button></Link>
-        <Link to="/Subscribed" ><button className="button">My Games</button></Link>
-        <Link to="/Popular" ><button className="button">Popular</button></Link>
-        <Link to="/Adventures" ><button className="button">Adventures</button></Link>
-        <Link to="/Puzzle" ><button className="button">Puzzles</button></Link>
-        <Link to="/Race" ><button className="button">Race</button></Link>
-        <Link to="/Action" ><button className="button">Action</button></Link>
-        <Link to="/Strategy" ><button className="button">Strategy</button></Link>
-        <Link to="/Android" ><button className="button">Android games</button></Link>
-      </div>
-
-
-
-
-
+      {/* Nav and Main components import for routes */}
+      <Nav></Nav>
+      <Main></Main>
 
       {/* Footer */}
       <footer className="footer">
