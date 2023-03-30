@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Puzzle() {
   const [puzzleData, setPuzzleData] = useState([]);
@@ -19,7 +20,23 @@ function Puzzle() {
   };
 
   const handleAddToGamesClick = () => {
-    // TODO: Implement the logic for adding the puzzle to the user's games category.
+    if (!selectedPuzzle) return;
+
+    // Get the user's games from local storage or create a new array if it doesn't exist.
+    const games = JSON.parse(localStorage.getItem('games')) || [];
+
+    // Check if the selected puzzle is already in the user's games.
+    const alreadyInGames = games.some(game => game.id === selectedPuzzle.id);
+
+    if (!alreadyInGames) {
+      // Add the selected puzzle to the user's games.
+      games.push(selectedPuzzle);
+
+      // Update the user's games in local storage.
+      localStorage.setItem('games', JSON.stringify(games));
+    }
+
+    setSelectedPuzzle(null);
   };
 
   return (
