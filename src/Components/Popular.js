@@ -5,11 +5,11 @@ function Card(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleCardClick = () => {
-    setModalIsOpen(true);
+    setModalIsOpen(!false);
   };
 
   const handleCloseClick = () => {
-    setModalIsOpen(false);
+    setModalIsOpen(!true);
   };
 
   return (
