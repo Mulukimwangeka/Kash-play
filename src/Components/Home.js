@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import Popular from "./Popular";
 import Adventures from "./Adventures";
 import Action from "./Action";
@@ -12,35 +12,13 @@ import "./Styles/Home.css";
 //home component
 
 function Home() {
-  const carouselRef = useRef();
 
-  const handleCarouselScroll = () => {
-    if (
-      carouselRef.current.scrollLeft + carouselRef.current.offsetWidth >=
-      carouselRef.current.scrollWidth
-    ) {
-      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      carouselRef.current.scrollBy({
-        left: carouselRef.current.offsetWidth,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  useEffect(() => {
-    const intervalId = setInterval(handleCarouselScroll, 3000);
-
-    return () => clearInterval(intervalId);
-  }, []);
 
   return (
     <div className="App">
       <h1>Home</h1>
-      <div className="carousel">
-        <div className="Popular-card" ref={carouselRef}>
+        <div className="Popular-card" >
           <Popular />
-        </div>
       </div>
       <div className="Subscribed-card">
         <Subscribed />

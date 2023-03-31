@@ -15,11 +15,15 @@
     margin: 20px;
     width: 300px;
     height: 400px;
-    border: 1px solid black;
     text-align: center;
     position: relative;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #eee8e8;
+    border-radius: 30px;
+    overflow: hidden;
   }
+  
   
   .card img {
     height: 200px;
