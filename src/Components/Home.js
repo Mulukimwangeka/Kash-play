@@ -24,7 +24,6 @@ function Home() {
     <div className="App">
       <h1>Home</h1>
       <div className="Popular-card">
-      <h1>Popular</h1>
         <Popular games={popularGames} />
       </div>
       <div className="Popular-card">

@@ -6,6 +6,10 @@
   scroll-behavior: smooth;
 }
 
+.Popular-card::-webkit-scrollbar {
+  display: none;
+}
+
 .Popular-card > * {
   flex: 0 0 auto;
   margin-right: 16px;
