@@ -5,15 +5,15 @@ function Card(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleCardClick = () => {
-    setModalIsOpen(!false);
+    setModalIsOpen(!modalIsOpen);
   };
 
   const handleCloseClick = () => {
-    setModalIsOpen(!true);
+    setModalIsOpen(false);
   };
 
   return (
-    <div className="card">
+    <div className="card" onClick={handleCardClick}>
       <h2>{props.name}</h2>
       <img src={props.image} alt={props.name} />
       <p>{props.details}</p>

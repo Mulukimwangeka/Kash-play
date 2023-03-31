@@ -20,25 +20,25 @@ function Home() {
         <div className="Popular-card" >
           <Popular />
       </div>
-      <div className="Subscribed-card">
+      <div className="Popular-card">
         <Subscribed />
       </div>
-      <div className="Adventure-card">
+      <div className="Popular-card">
         <Adventures />
       </div>
-      <div className="Action-card">
+      <div className="Popular-card">
         <Action />
       </div>
-      <div className="Race-card">
+      <div className="Popular-card">
         <Race />
       </div>
-      <div className="Android-card">
+      <div className="Popular-card">
         <Android />
       </div>
-      <div className="Puzzle-card">
+      <div className="Popular-card">
         <Puzzle />
       </div>
-      <div className="Strategy-card">
+      <div className="Popular-card">
         <Strategy />
       </div>
     </div>
