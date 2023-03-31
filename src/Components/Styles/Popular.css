@@ -1,5 +1,5 @@
 /* Popular.css */
-/*
+
 .App {
     text-align: center;
   }
@@ -62,12 +62,12 @@
   .popup h2 {
     margin-top: 0;
   }
-  */
+  
 
 
 
-  .card-container-wrapper {
-    overflow-x: scroll;
+  /* .card-container-wrapper {
+    overflow-x:hidden;
     width: 100%;
   }
 
@@ -124,4 +124,4 @@
   .card-container-wrapper::-webkit-scrollbar {
     width: 0;
     height: 0;
-  }
+  } */

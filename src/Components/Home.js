@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Popular from "./Popular";
 import Adventures from "./Adventures";
 import Action from "./Action";
@@ -12,13 +12,20 @@ import "./Styles/Home.css";
 //home component
 
 function Home() {
+  const [popularGames, setPopularGames] = useState([]);
 
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => setPopularGames(data));
+  }, []);
 
   return (
     <div className="App">
       <h1>Home</h1>
-        <div className="Popular-card" >
-          <Popular />
+      <div className="Popular-card">
+      <h1>Popular</h1>
+        <Popular games={popularGames} />
       </div>
       <div className="Popular-card">
         <Subscribed />

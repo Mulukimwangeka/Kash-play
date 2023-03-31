@@ -1,37 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Styles/Popular.css";
-
-function Card(props) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const handleCardClick = () => {
-    setModalIsOpen(!modalIsOpen);
-  };
-
-  const handleCloseClick = () => {
-    setModalIsOpen(false);
-  };
-
-  return (
-    <div className="card" onClick={handleCardClick}>
-      <h2>{props.name}</h2>
-      <img src={props.image} alt={props.name} />
-      <p>{props.details}</p>
-      {modalIsOpen && (
-        <div className="modal">
-          <div className="popup">
-            <h2>{props.name}</h2>
-            <img src={props.image} alt={props.name} />
-            <p>Details: {props.details}</p>
-            <p>Charges: {props.charges}</p>
-            <p>Registration details: {props.registration}</p>
-            <button onClick={handleCloseClick}>Close</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+import Card from "./Card";
 
 function Popular() {
   const [games, setGames] = useState([]);
@@ -43,7 +12,7 @@ function Popular() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="Popular">
       <h1>Popular</h1>
       <div className="card-container-wrapper">
         <div className="card-container">
