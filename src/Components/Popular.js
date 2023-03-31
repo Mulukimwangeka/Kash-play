@@ -13,7 +13,7 @@ function Card(props) {
   };
 
   return (
-    <div className="card" onClick={handleCardClick}>
+    <div className="card">
       <h2>{props.name}</h2>
       <img src={props.image} alt={props.name} />
       <p>{props.details}</p>
@@ -45,17 +45,19 @@ function Popular() {
   return (
     <div className="App">
       <h1>Popular</h1>
-      <div className="card-container">
-        {games.map((game) => (
-          <Card
-            key={game.id}
-            name={game.name}
-            details={game.details}
-            charges={game.charges}
-            registration={game.registration}
-            image={game.image}
-          />
-        ))}
+      <div className="card-container-wrapper">
+        <div className="card-container">
+          {games.map((game) => (
+            <Card
+              key={game.id}
+              name={game.name}
+              details={game.details}
+              charges={game.charges}
+              registration={game.registration}
+              image={game.image}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
