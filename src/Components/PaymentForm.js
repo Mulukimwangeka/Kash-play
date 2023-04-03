@@ -13,6 +13,14 @@ const PaymentForm = ({ redirectUrl }) => {
     setIsSubmitted(true);
   };
 
+  const handlePhoneNumberChange = (e) => {
+    const input = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+    const trimmedInput = input.replace(/^0+/, ""); // Remove leading zeros
+    if (trimmedInput.length <= 10) {
+      setPhoneNumber(trimmedInput);
+    }
+  };
+
   return (
     <div className="payment-form">
       {!isSubmitted ? (
@@ -22,10 +30,9 @@ const PaymentForm = ({ redirectUrl }) => {
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
-            pattern="\(\d{3}\) \d{3}-\d{4}"
             required
             value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            onChange={handlePhoneNumberChange}
           />
           <button type="submit">Pay and Play</button>
         </form>
