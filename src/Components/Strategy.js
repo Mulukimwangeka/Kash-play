@@ -1,70 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import Card from "./Card";
 
-function Strategy() {
-  const [strategyData, setStrategyData] = useState([]);
-  const [selectedStrategy, setSelectedStrategy] = useState(null);
+function StrategyGames() {
+  const [gameList, setGameList] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(data => setStrategyData(data));
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        const games = data.map((product) => {
+          return {
+            name: product.title,
+            details: product.description,
+            image: product.image,
+            redirectUrl: `https://fakestoreapi.com/products`,
+          };
+        });
+        setGameList(games);
+      })
+      .catch((error) => console.log(error));
   }, []);
-
-  const handleCardClick = strategy => {
-    setSelectedStrategy(strategy);
-  };
-
-  const handleCloseClick = () => {
-    setSelectedStrategy(null);
-  };
-
-  const handleAddToGamesClick = () => {
-    if (!selectedStrategy) return;
-
-    // Get the user's games from local storage or create a new array if it doesn't exist.
-    const games = JSON.parse(localStorage.getItem('games')) || [];
-
-    // Check if the selected strategy game is already in the user's games.
-    const alreadyInGames = games.some(game => game.id === selectedStrategy.id);
-
-    if (!alreadyInGames) {
-      // Add the selected strategy game to the user's games.
-      games.push(selectedStrategy);
-
-      // Update the user's games in local storage.
-      localStorage.setItem('games', JSON.stringify(games));
-    }
-
-    setSelectedStrategy(null);
-  };
 
   return (
     <div>
-      <h1>Strategy Games</h1>
-      <div className="card-container">
-        {strategyData.map((strategy, index) => (
-          <div className="card" key={index} onClick={() => handleCardClick(strategy)}>
-            <h2>{strategy.name}</h2>
-            <img src={strategy.image} alt={strategy.name} />
-            <p>{strategy.details}</p>
-            <button>Play</button>
-          </div>
-        ))}
-      </div>
-      {selectedStrategy && (
-        <div className="modal">
-          <div className="popup">
-            <h2>{selectedStrategy.name}</h2>
-            <img src={selectedStrategy.image} alt={selectedStrategy.name} />
-            <p>{selectedStrategy.details}</p>
-            <button onClick={handleAddToGamesClick}>Add to my games</button>
-            <button onClick={handleCloseClick}>Close</button>
-          </div>
-        </div>
-      )}
+      <h1>Strategy games</h1>
+      {gameList.map((game) => (
+        <Card
+          key={game.name}
+          name={game.name}
+          details={game.details}
+          image={game.image}
+          redirectUrl={game.redirectUrl}
+        />
+      ))}
     </div>
   );
 }
 
-export default Strategy;
+export default StrategyGames;

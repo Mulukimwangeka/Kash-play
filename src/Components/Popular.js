@@ -8,7 +8,18 @@ function Popular() {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
-      .then((data) => setGames(data));
+      .then((data) => {
+        const games = data.map((product) => {
+          return {
+            id: product.id,
+            name: product.title,
+            image: product.image,
+            details: product.description,
+            redirectUrl: `https://fakestoreapi.com/products/${product.id}`,
+          };
+        });
+        setGames(games);
+      });
   }, []);
 
   return (
@@ -21,8 +32,6 @@ function Popular() {
               key={game.id}
               name={game.name}
               details={game.details}
-              charges={game.charges}
-              registration={game.registration}
               image={game.image}
             />
           ))}
