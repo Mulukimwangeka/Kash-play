@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Home'
 import Subscribed from './Subscribed'
@@ -12,22 +12,32 @@ import Strategy from './Strategy'
 
 
 function Main() {
-    return (
-        
-       <Routes>
-        <Route exact path="/Home" element={<Home/>} />
-        <Route exact path="/Subscribed" element={<Subscribed/>} />
-        <Route exact path="/Popular" element={<Popular/>} />
-        <Route exact path="/Adventures" element={<Adventures/>} />
-        <Route exact path="/Puzzle" element={<Puzzles/>} />
-        <Route exact path="/Android" element={<Android/>} />
-        <Route exact path='/Race' element={<Race/>} />
-        <Route exact path='/Action' element={<Action/>} />
-        <Route exact path='/Strategy' element={<Strategy/>} />
+  const [popularGames, setPopularGames] = useState([]);
+  // initialize state for favorite games
+  const [favGames, setFavGames] = useState([])
 
-      </Routes>
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => setPopularGames(data));
+  }, []);
 
-    );
-    }
+  return (
+
+    <Routes>
+      <Route exact path="/Home" element={<Home games={popularGames} setFavGames={setFavGames}/>} />
+      <Route exact path="/Subscribed" element={<Subscribed games={favGames} />} />
+      <Route exact path="/Popular" element={<Popular games={popularGames} setFavGames={setFavGames} />} />
+      <Route exact path="/Adventures" element={<Adventures games={favGames} />} />
+      <Route exact path="/Puzzle" element={<Puzzles />} />
+      <Route exact path="/Android" element={<Android />} />
+      <Route exact path='/Race' element={<Race />} />
+      <Route exact path='/Action' element={<Action />} />
+      <Route exact path='/Strategy' element={<Strategy />} />
+
+    </Routes>
+
+  );
+}
 
 export default Main;
