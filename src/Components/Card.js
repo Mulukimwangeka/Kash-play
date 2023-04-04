@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./Styles/Card.css";
 import PaymentForm from "./PaymentForm";
 
-function Card(props) {
+function Card({games, setFavGames}) {
+  console.log(games)
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [paymentModalIsOpen, setPaymentModalIsOpen] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
@@ -23,30 +24,31 @@ function Card(props) {
     setPaymentModalIsOpen(false);
   };
 
-  const handleAddToMyGamesClick = () => {
-    // TODO: add game to "my games" list
-    setIsAdded(true);
+  const handleAddToMyGamesClick = (games) => {
+  // TODO: add game to "my games" list
+    setFavGames(prev=>[...prev,games]);
+    setIsAdded(true)
   };
 
   return (
     <div className="card" onClick={handleCardClick}>
       <div className="game-info">
-        <img src={props.image} alt={props.name} className="game-image" />
-        <h2 className="game-name">{props.name}</h2>
+        <img src={games?.image} alt={games?.title} className="game-image" />
+        <h2 className="game-name">{games?.title}</h2>
       </div>
-      <p>{props.details}</p>
+      <p>{games?.description}</p>
       {modalIsOpen && (
         <div className="modal">
           <div className="popup">
             <div className="game-info">
-              <img src={props.image} alt={props.name} className="game-image" />
-              <h2 className="game-name">{props.name}</h2>
+              <img src={games?.image} alt={games?.title} className="game-image" />
+              <h2 className="game-name">{games?.title}</h2>
             </div>
-            <p>Details: {props.details}</p>
+            <p>Details: {games?.description}</p>
             <button onClick={handleCloseClick}>Close</button>
             <button onClick={handlePlayClick}>Play</button>
             {!isAdded && (
-              <button onClick={handleAddToMyGamesClick}>Add to my games</button>
+              <button onClick={()=>handleAddToMyGamesClick(games)}>Add to my games</button>
             )}
           </div>
         </div>
@@ -55,7 +57,7 @@ function Card(props) {
         <div className="modal">
           <div className="popup payment-popup">
             <PaymentForm
-              redirectUrl={props.redirectUrl}
+              // redirectUrl={redirectUrl}
               onClose={handlePaymentCloseClick}
             />
           </div>
